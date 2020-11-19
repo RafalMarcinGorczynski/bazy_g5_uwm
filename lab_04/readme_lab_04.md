@@ -6,37 +6,37 @@ select * from postac where rodzaj='wiking' and nazwa!='Bjorn' order by data_ur;
 
 delete from postac where id_postaci=6;
 delete from postac where id_postaci=7;
-```sql
+```
 b)
 //Najpierw nadpisujemy atrybut w celu usunięcia autoinkrementacji
-
+```sql
 alter table postac modify id_postaci;
-
+```
 //Nie możemy jeszcze usunąć klucza głównego, ponieważ do 
 //kolumny id_postaci są przypisane klucze obce.
 
 //Teraz będziemy usuwać wszystkie klucze obce przypisane do kolumny id_postaci
 
 //Najpierw sprawdzamy nazwę klucza obcego
-
+```sql
 show create table walizka;
-
+```
 //Teraz usuwamy
-
+```sql
 alter table walizka drop foreign key walizka_ibfk_1;
-
+```
 //sprawdzam nazwę w tabeli przetwory;
-
+```sql
 show create table przetwory;
-
+```
 //Usuwam
-
+```sql
 alter table przetwory drop foreign key przetwory_ibfk_1;
-
+```
 //Po usunięciu wszystkich obcych kluczy usuwam klucz główny z tabeli postac
-
+```sql
 alter table postac drop primary key;
-
+```
 # Zadanie 2
 
 a)

@@ -1,14 +1,12 @@
-**lab_04**
-
 # Zadanie 1
 
 a) 
-
+```sql
 select * from postac where rodzaj='wiking' and nazwa!='Bjorn' order by data_ur;
 
 delete from postac where id_postaci=6;
 delete from postac where id_postaci=7;
-
+```sql
 b)
 //Najpierw nadpisujemy atrybut w celu usunięcia autoinkrementacji
 

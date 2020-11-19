@@ -40,106 +40,118 @@ alter table postac drop primary key;
 # Zadanie 2
 
 a)
-
+```sql
 alter table postac add column pesel varchar(11) first;
-
-//po stworzeniu kolumny kolumna pesel ma domyślną wartość NULL
-//aktualizujemy kolumnę pesel, aby wartości były unikalne
-
+```
+Po stworzeniu kolumny kolumna pesel ma domyślną wartość NULL aktualizujemy kolumnę pesel, aby wartości były unikalne
+```sql
 update postac set pesel='64758735462' +id_postaci;
-
-//teraz ustawiam klucz główny na kolumnie pesel
-
+```
+Teraz ustawiam klucz główny na kolumnie pesel
+```sql
 alter table postac add primary key(pesel);
-
+```
 b)
 
-//sprawdzam dotychczasową zawartość kolumny rodzaj
-
+Sprawdzam dotychczasową zawartość kolumny rodzaj
+```sql
 show create table postac;
-
-//dopisuję do zawartości rodzaj 'syrena'
-
+```
+Dopisuję do zawartości rodzaj 'syrena'
+```sql
 alter table postac modify rodzaj enum('wiking', 'ptak', 'kobieta', 'syrena');
-
+```
 c)
-
+```sql
 insert into postac values('92101012346', default, 'Gertruda Nieszczera', 'syrena', '1992-10-10', 28, default, default);
-
+```
 # Zadanie 3
 
 a)
-
+```sql
 update postac set statek='Krysia' where nazwa like '%a%';
-
+```
 b)
-
+```sql
 uptade state set ladownosc=ladownosc*0.7
 where data_wodowania beetwen '1901-01-01' and '2000-12-31';
-
+```
 c)
-
+```sql
 alter table postac add check(age<=1000);
-
+```
 # Zadanie 4
 
 a) 
 
-//Najpierw modyfikuję kolumnę rodzaj
+Najpierw modyfikuję kolumnę rodzaj
+```sql
 alter table postac modify rodzaj enum('wiking','ptak','kobieta','syrena','waz');
-
-//nastepnie dodaje węża Loko
+```
+Nastepnie dodaje węża Loko
+```sql
 insert into postac values('99092092345', 13, 'Loko', 'waz', '1999-09-20-, 21, default, default);
+```
+b)  
 
-b)
-
-//W tym wypadku mamy dwie opcje wykonania polecenia:
+W tym wypadku mamy dwie opcje wykonania polecenia:
+```sql
 create table marynarz like postac;
+```
+
 insert into marynarz select * from postac where statek is not null;
-
-//oraz
+```
+oraz
+```sql
 create table marynarz select * from postac where statek is not null;
-
-//'create table like' przenosi klucze główne i obce, 
-//a 'create table select' tego nie robi.
+```
+```sql
+create table like
+```
+przenosi klucze główne i obce,  
+ 
+natomiast 
+```sql
+create table select
+```
+tego nie robi.
 
 c)
 
-//Używając create table like przenieśliśmy już klucze główne i obce
+Używając create table like przenieśliśmy już klucze główne i obce.
 
 # Zadanie 5
 
-a)
-
+a)  
+```sql
 update postac set statek=default;
-
+```
 b)
-
+```sql
 delete from postac where id_postaci=9;
-
+```
 c)
-
+```sql
 delete from statek;
+```
+d)  
 
-d)
-
-// Żeby usunąć tabelę statek musimy usunąć klucz obcy 
-//odnoszący się do tabeli statek z tabeli postac;
-
+Żeby usunąć tabelę statek musimy usunąć klucz obcy odnoszący się do tabeli statek z tabeli postac.
+```sql
 alter table postac drop foreign key postac_ibfk_1;
-
-// Następnie usuwamy tabelę statek;
-
+```
+Następnie usuwamy tabelę statek.
+```sql
 drop table statek;
-
+```
 e)
-
+```sql
 create table zwierz (id int primary key auto_increment, nazwa varchar(50), wiek int);
-
+```
 f)
-
+```sql
 insert into zwierz(nazwa,wiek) select nazwa,wiek from postac where rodzaj='ptak' and rodzaj='waz';
-
+```
  	
 
 

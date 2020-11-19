@@ -107,13 +107,11 @@ create table marynarz select * from postac where statek is not null;
 ```
 ```sql
 create table like
-
 przenosi klucze główne i obce,  
 ```
 natomiast 
 ```sql
 create table select
-
 tego nie robi.
 ```
 c)

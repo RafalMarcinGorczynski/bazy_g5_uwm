@@ -97,7 +97,7 @@ b)
 W tym wypadku mamy dwie opcje wykonania polecenia:
 ```sql
 create table marynarz like postac;
-```
+
 
 insert into marynarz select * from postac where statek is not null;
 ```

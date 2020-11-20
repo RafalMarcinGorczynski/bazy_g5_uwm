@@ -46,17 +46,17 @@ alter table postac add column pesel varchar(11) first;
 ```sql
 update postac set pesel='64758735462' +id_postaci;
 ```
-Teraz ustawiam klucz główny na kolumnie pesel
+**Teraz ustawiam klucz główny na kolumnie _pesel_:**
 ```sql
 alter table postac add primary key(pesel);
 ```
 b)
 
-Sprawdzam dotychczasową zawartość kolumny rodzaj
+**Sprawdzam dotychczasową zawartość kolumny rodzaj:**
 ```sql
 show create table postac;
 ```
-Dopisuję do zawartości rodzaj 'syrena'
+**Dopisuję do zawartości rodzaj 'syrena'**
 ```sql
 alter table postac modify rodzaj enum('wiking', 'ptak', 'kobieta', 'syrena');
 ```
@@ -83,24 +83,24 @@ alter table postac add check(age<=1000);
 
 a) 
 
-Najpierw modyfikuję kolumnę rodzaj
+**Najpierw modyfikuję kolumnę _rodzaj_:**
 ```sql
 alter table postac modify rodzaj enum('wiking','ptak','kobieta','syrena','waz');
 ```
-Nastepnie dodaje węża Loko
+**Nastepnie dodaje węża Loko:**
 ```sql
 insert into postac values('99092092345', 13, 'Loko', 'waz', '1999-09-20-, 21, default, default);
 ```
 b)  
 
-W tym wypadku mamy dwie opcje wykonania polecenia:
+**W tym wypadku mamy dwie opcje wykonania polecenia:**
 ```sql
 create table marynarz like postac;
 
 
 insert into marynarz select * from postac where statek is not null;
 ```
-oraz
+**oraz**
 ```sql
 create table marynarz select * from postac where statek is not null;
 ```
@@ -108,14 +108,14 @@ create table marynarz select * from postac where statek is not null;
 create table like
 przenosi klucze główne i obce,  
 ```
-natomiast 
+**natomiast **
 ```sql
 create table select
 tego nie robi.
 ```
 c)
 
-Używając create table like przenieśliśmy już klucze główne i obce.
+**Używając create table like przenieśliśmy już klucze główne i obce.**
 
 # Zadanie 5
 
@@ -133,11 +133,11 @@ delete from statek;
 ```
 d)  
 
-Żeby usunąć tabelę statek musimy usunąć klucz obcy odnoszący się do tabeli statek z tabeli postac.
+**Żeby usunąć tabelę statek musimy usunąć klucz obcy odnoszący się do tabeli statek z tabeli postac:**
 ```sql
 alter table postac drop foreign key postac_ibfk_1;
 ```
-Następnie usuwamy tabelę statek.
+**Następnie usuwamy tabelę statek:**
 ```sql
 drop table statek;
 ```

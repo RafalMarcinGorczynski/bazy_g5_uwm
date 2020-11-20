@@ -20,19 +20,19 @@ Nie możemy jeszcze usunąć klucza głównego, ponieważ do kolumny _id_postaci
 ```sql
 show create table walizka;
 ```
-Teraz usuwamy
+Teraz usuwamy:
 ```sql
 alter table walizka drop foreign key walizka_ibfk_1;
 ```
-Sprawdzam nazwę w tabeli przetwory;
+Sprawdzam nazwę w tabeli _przetwory_:
 ```sql
 show create table przetwory;
 ```
-Usuwam
+Usuwamy:
 ```sql
 alter table przetwory drop foreign key przetwory_ibfk_1;
 ```
-Po usunięciu wszystkich obcych kluczy usuwam klucz główny z tabeli postac
+Po usunięciu wszystkich obcych kluczy usuwam klucz główny z tabeli _postac_
 ```sql
 alter table postac drop primary key;
 ```

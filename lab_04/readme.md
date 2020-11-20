@@ -13,11 +13,11 @@ b)
 ```sql
 alter table postac modify id_postaci;
 ```
-Nie możemy jeszcze usunąć klucza głównego, ponieważ do kolumny id_postaci są przypisane klucze obce.
+Nie możemy jeszcze usunąć klucza głównego, ponieważ do kolumny id_postaci są przypisane klucze obce przy pomocy `alter table`.
 
-Teraz będziemy usuwać wszystkie klucze obce przypisane do kolumny id_postaci
+**Teraz będziemy usuwać wszystkie klucze obce przypisane do kolumny id_postaci**
 
-Najpierw sprawdzamy nazwę klucza obcego:
+**Najpierw sprawdzamy nazwę klucza obcego:**
 ```sql
 show create table walizka;
 ```

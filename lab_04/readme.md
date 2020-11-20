@@ -13,7 +13,7 @@ b)
 ```sql
 alter table postac modify id_postaci;
 
-Nie możemy jeszcze usunąć klucza głównego, ponieważ do kolumny _id_postaci_ są przypisane klucze obce przy pomocy `alter table`. 
+Nie możemy jeszcze usunąć klucza głównego, ponieważ do kolumny id_postaci są przypisane klucze obce przy pomocy alter table. 
 ```
 
 **Będziemy teraz usuwać wszystkie klucze obce przypisane do kolumny _id_postaci_. Najpierw sprawdzamy jednak nazwę klucza obcego:**

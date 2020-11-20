@@ -29,7 +29,7 @@ select idZasobu, ilosc from ekwipunek where idKreatury in (1,3,5);
 ```
 
 
-#Zadanie 2
+# Zadanie 2
 
 1.
 ```sql
@@ -44,7 +44,7 @@ select * from zasob where waga between 2 and 5;
 select * from kreatura where nazwa like '%or%' and udzwig between 30 and 70;
 ```
 
-#Zadanie 3
+# Zadanie 3
 
 1.
 ```sql

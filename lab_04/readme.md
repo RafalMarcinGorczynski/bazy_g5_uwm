@@ -9,7 +9,7 @@ delete from postac where id_postaci=7;
 ```
 b)  
 
-Najpierw nadpisujemy atrybut w celu usunięcia autoinkrementacji
+**Najpierw nadpisujemy atrybut w celu usunięcia autoinkrementacji:**
 ```sql
 alter table postac modify id_postaci;
 ```
@@ -17,7 +17,7 @@ Nie możemy jeszcze usunąć klucza głównego, ponieważ do kolumny id_postaci 
 
 Teraz będziemy usuwać wszystkie klucze obce przypisane do kolumny id_postaci
 
-Najpierw sprawdzamy nazwę klucza obcego
+Najpierw sprawdzamy nazwę klucza obcego:
 ```sql
 show create table walizka;
 ```
@@ -29,11 +29,11 @@ Sprawdzam nazwę w tabeli przetwory;
 ```sql
 show create table przetwory;
 ```
-//Usuwam
+Usuwam
 ```sql
 alter table przetwory drop foreign key przetwory_ibfk_1;
 ```
-//Po usunięciu wszystkich obcych kluczy usuwam klucz główny z tabeli postac
+Po usunięciu wszystkich obcych kluczy usuwam klucz główny z tabeli postac
 ```sql
 alter table postac drop primary key;
 ```
@@ -106,7 +106,7 @@ oraz
 create table marynarz select * from postac where statek is not null;
 ```
 ```sql
-`create table like`
+create table like
 przenosi klucze główne i obce,  
 ```
 natomiast 

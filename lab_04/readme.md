@@ -12,9 +12,9 @@ b)
 **Najpierw nadpisujemy atrybut w celu usunięcia autoinkrementacji:**
 ```sql
 alter table postac modify id_postaci;
-```
-Nie możemy jeszcze usunąć klucza głównego, ponieważ do kolumny _id_postaci_ są przypisane klucze obce przy pomocy `alter table`. 
 
+Nie możemy jeszcze usunąć klucza głównego, ponieważ do kolumny _id_postaci_ są przypisane klucze obce przy pomocy `alter table`. 
+```
 
 **Będziemy teraz usuwać wszystkie klucze obce przypisane do kolumny _id_postaci_. Najpierw sprawdzamy jednak nazwę klucza obcego:**
 ```sql
@@ -32,7 +32,7 @@ Usuwamy:
 ```sql
 alter table przetwory drop foreign key przetwory_ibfk_1;
 ```
-Po usunięciu wszystkich obcych kluczy usuwam klucz główny z tabeli _postac_
+Po usunięciu wszystkich obcych kluczy usuwam klucz główny z tabeli _postac_:
 ```sql
 alter table postac drop primary key;
 ```
@@ -42,7 +42,7 @@ a)
 ```sql
 alter table postac add column pesel varchar(11) first;
 ```
-Po stworzeniu kolumny kolumna pesel ma domyślną wartość NULL aktualizujemy kolumnę pesel, aby wartości były unikalne
+Po stworzeniu kolumny, kolumna _pesel_ ma domyślną wartość 'NULL' aktualizujemy kolumnę _pesel_, aby wartości były unikalne:
 ```sql
 update postac set pesel='64758735462' +id_postaci;
 ```

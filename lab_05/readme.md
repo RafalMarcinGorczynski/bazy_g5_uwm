@@ -1,15 +1,15 @@
 # Zadanie 1
 
 1.
-//Sprawdzamy czy mamy dostęp do bazy wikingowie.
+**Sprawdzamy czy mamy dostęp do bazy wikingowie:**
 
 show databases;
 
-//Możemy wyświetlić dane z tabeli;
+**Możemy wyświetlić dane z tabeli:**
 
 select * from wikingowie.kreatura;
 
-//Teraz kopiujemy tabele;
+**Teraz kopiujemy tabele:**
 
 create table kreatura select * from wikingowie.kreatura;
 create table zasob select * from wikingowie.zasob;

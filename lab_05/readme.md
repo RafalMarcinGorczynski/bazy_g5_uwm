@@ -58,6 +58,36 @@ select * from zasob where rodzaj is not null order by waga;
 ```sql
 select * from kreatura order by dataUr limit 5;
 ```
+# Zadanie 4
 
+1.
+**Trzeba użyć słowa distinct.**
+```sql
+select distinct rodzaj from zasob;
+```
 
+2.
+```sql
+select concat(nazwa,' - ', rodzaj) from kreatura where rodzaj like "wi%";
+```
+3.
+```sql
+mysql> select nazwa, waga*ilosc from zasob;
+```
+# Zadanie 5
+
+1.
+```sql
+select nazwa, 0.3*waga as 'odpad', 0.7*waga as 'jedzenie(netto)' from zasob where rodzaj = 'jedzenie';
+```
+2.
+```sql
+select * from zasob where rodzaj is null;
+```
+3.
+```sql
+select distinct nazwa,rodzaj from zasob where nazwa like "ba%" or nazwa like "%os%" order by nazwa;
+
+select distinct(rodzaj) from zasob where nazwa like 'Ba%' or nazwa like '%os' order by rodzaj asc;
+```
 

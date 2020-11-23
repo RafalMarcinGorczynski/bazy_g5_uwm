@@ -36,7 +36,7 @@ select rodzaj, count(distinct(nazwa)) as ilosc_zasobow from zasob group by rodza
 ```sql
 select * from kreatura, ekwipunek where  kreatura.idKreatury=ekwipunek.idKreatury;
 
-select nazwa, kreatura.idKreatury, ekwipunek.idKreatury from kreatura, ekwipunek where kreatura.id                             Kreatury=ekwipunek.idKreatury;
+select nazwa, kreatura.idKreatury, ekwipunek.idKreatury from kreatura, ekwipunek where kreatura.idKreatury=ekwipunek.idKreatury;
 
 select nazwa, sum(ilosc) as suma from kreatura k , ekwipunek e  where k.idKreatury=e.idKreatury group by nazwa;
 ```

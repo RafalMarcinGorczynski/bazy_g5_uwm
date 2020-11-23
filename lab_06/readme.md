@@ -12,9 +12,9 @@ select rodzaj, count(*), avg(waga) from kreatura group by rodzaj;
 ```
 3.
 ```sql
-mysql> SELECT rodzaj, AVG(YEAR(NOW())-YEAR(dataUr)) FROM kreatura GROUP BY rodzaj;
+select rodzaj, avg(year(now())-year(dataUr)) from kreatura group by rodzaj;
 
-mysql> SELECT rodzaj, AVG(2020 - YEAR(dataUr)) FROM kreatura GROUP BY rodzaj;
+select rodzaj, avg(2020 - year(dataUr)) from kreatura group by rodzaj;
 ```
 # Zadanie 2
 
@@ -22,7 +22,7 @@ mysql> SELECT rodzaj, AVG(2020 - YEAR(dataUr)) FROM kreatura GROUP BY rodzaj;
 ```sql
 select sum(udzwig), rodzaj from kreatura group by rodzaj;
 ```
-2.
+2.	
 ```sql
 select nazwa, sum(waga)as suma from zasob where ilosc>=4 group by nazwa having suma>10;
 ```
@@ -42,6 +42,6 @@ select nazwa, sum(ilosc) as suma from kreatura k , ekwipunek e  where k.idKreatu
 ```
 2.
 ```sql
-SELECT k.nazwa, z.nazwa FROM kreatura k, ekwipunek e, zasob z WHERE k.idKreatury=e.idKreatury AND e.idZasobu=z.idZasobu;
+select k.nazwa, z.nazwa from kreatura k, ekwipunek e, zasob z where k.idKreatury=e.idKreatury and e.idZasobu=z.idZasobu;
 ```
 3.

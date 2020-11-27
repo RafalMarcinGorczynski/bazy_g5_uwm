@@ -72,22 +72,26 @@ select concat(nazwa,' - ', rodzaj) from kreatura where rodzaj like "wi%";
 ```
 3.
 ```sql
-mysql> select nazwa, waga*ilosc from zasob;
+select nazwa, (ilosc * waga) as Calkowita_waga from zasob 
+where year(dataPozyskania) between 2000 and 2007;
 ```
 # Zadanie 5
 
 1.
 ```sql
-select nazwa, 0.3*waga as 'odpad', 0.7*waga as 'jedzenie(netto)' from zasob where rodzaj = 'jedzenie';
-```
+select nazwa, 0.3*waga as 'odpad', 0.7*waga as 'jedzenie(netto)' from zasob 
+where rodzaj = 'jedzenie';
+``` 
 2.
 ```sql
 select * from zasob where rodzaj is null;
 ```
 3.
 ```sql
-select distinct nazwa,rodzaj from zasob where nazwa like "ba%" or nazwa like "%os%" order by nazwa;
+select distinct nazwa,rodzaj from zasob where nazwa like "ba%" or nazwa like "%os%" 
+order by nazwa;
 
-select distinct(rodzaj) from zasob where nazwa like 'Ba%' or nazwa like '%os' order by rodzaj asc;
+select distinct(rodzaj) from zasob where nazwa like 'Ba%' or nazwa like '%os' 
+order by rodzaj asc;
 ```
 

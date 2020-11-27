@@ -36,6 +36,7 @@ select nazwa, sum(ilosc) as suma from kreatura k , ekwipunek e  where k.idKreatu
 
 2.
 
-SELECT k.nazwa, z.nazwa FROM kreatura k, ekwipunek e, zasob z WHERE k.idKreatury=e.idKreatury AND e.idZasobu=z.idZasobu;
+select k.nazwa, z.nazwa from kreatura k, ekwipunek e, zasob z 
+where k.idKreatury=e.idKreatury and e.idZasobu=z.idZasobu;
 
 3.

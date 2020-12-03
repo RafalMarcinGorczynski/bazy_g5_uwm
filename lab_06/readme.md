@@ -82,3 +82,20 @@ WHERE e.idZasobu=z.idZasobu
 AND k.rodzaj='wiking'
 AND YEAR(k.dataUr) BETWEEN 1670 AND 1679;
 ```
+
+2.
+```sql
+SELECT distinct k.nazwa, k.dataUr, z.rodzaj 
+FROM kreatura k, zasob z, ekwipunek e 
+WHERE k.idKreatury=e.idKreatury and z.idZasobu=e.idZasobu 
+AND z.rodzaj="jedzenie"  
+ORDER BY k.dataUr DESC LIMIT 5;
+```
+
+3.
+```sql
+SELECT distinct concat( k.nazwa," - " ,k1.nazwa) 
+AS "NAZWA(ID+5)" 
+FROM kreatura k, kreatura k1 
+WHERE k.idKreatury+5=k1.idKreatury;
+```

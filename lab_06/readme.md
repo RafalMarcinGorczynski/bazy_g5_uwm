@@ -52,3 +52,33 @@ where k.idKreatury=e.idKreatury and e.idZasobu=z.idZasobu;
 
 
 3.
+Wyświetl wszystkie rekordy z obu tabel:
+```sql
+select k.idKreatury, k.nazwa, e.idKreatury FROM kreatura k left join ekwipunek e ON k.idKreatury=e.idKreatury;
+```
+```sql
+	SELECT k.idKreatury, k.nazwa, e.idKreatury
+	FROM kreatura k LEFT JOIN ekwipunek e
+	ON k.idKreatury=e.idKreatury
+	WHERE e.idKreatury IS NULL;
+```
+
+
+# Zadanie 4
+
+1.
+```sql
+SELECT k.nazwa, z.nazwa
+FROM kreatura k, zasob z, ekwipunek e
+WHERE k.idKreatury=e.idKreatury
+AND e.idZasobu=z.idZasobu
+AND k.rodzaj='wiking'
+AND YEAR(k.dataUr) BETWEEN 1670 AND 1679;
+
+
+SELECT k.nazwa, z.nazwa
+FROM zasob z, kreatura k natural join ekwipunek e
+WHERE e.idZasobu=z.idZasobu
+AND k.rodzaj='wiking'
+AND YEAR(k.dataUr) BETWEEN 1670 AND 1679;
+```

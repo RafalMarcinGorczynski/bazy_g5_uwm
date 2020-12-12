@@ -99,3 +99,23 @@ AS "NAZWA(ID+5)"
 FROM kreatura k, kreatura k1 
 WHERE k.idKreatury+5=k1.idKreatury;
 ```
+
+# Zadanie 5
+
+1.
+SELECT k.rodzaj, AVG(e.ilosc*z.waga) AS srednia_waga_zasobow 
+FROM kreatura k, ekwipunek e, zasob z
+WHERE k.idKreatury = e.idKreatury AND e.idZasobu = z.idZasobu
+AND k.rodzaj!='malpa' AND k.rodzaj!='waz'
+GROUP BY k.rodzaj HAVING SUM(e.ilosc)<30;  
+
+2.
+SELECT DISTINCT k.nazwa, k.rodzaj, k.dataUr from kreatura k,
+(SELECT min(dataUr) min, max(dataUr) max 
+FROM kreatura GROUP BY rodzaj) b
+WHERE b.min = k.dataUr OR b.max=k.dataUr;
+
+SELECT DISTINCT k.rodzaj,
+(SELECT CONCAT(k2.nazwa, " - " , k2.dataUr) FROM kreatura k2 WHERE k.rodzaj=k2.rodzaj ORDER BY k2.dataUr LIMIT 1) AS najstarsze,
+(SELECT CONCAT(k2.nazwa, " - " , k2.dataUr) FROM kreatura k2 WHERE k.rodzaj=k2.rodzaj ORDER BY k2.dataUr DESC LIMIT 1) AS najmlodsze
+FROM kreatura k;

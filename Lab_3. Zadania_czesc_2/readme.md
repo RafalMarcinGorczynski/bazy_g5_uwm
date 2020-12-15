@@ -57,8 +57,10 @@ FROM zamowienie z, pozycja_zamowienia p, towar t
 WHERE z.id_zamowienia = p.zamowienie
 GROUP BY rok
 ORDER BY rok DESC;
+```
 
 # 8.
+
 ```sql
 SELECT k.nazwa_kategori, COUNT(s.ilosc) AS ilosc, ROUND(SUM(s.ilosc*t.cena_zakupu),2) AS wartosc
 FROM kategoria k, stan_magazynowy s, towar t
@@ -67,6 +69,7 @@ GROUP BY k.nazwa_kategori;
 ```
 
 # 9. 
+
 ```sql
 SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 

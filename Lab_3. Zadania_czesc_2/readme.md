@@ -50,7 +50,8 @@ WHERE pz.zamowienie=z.id_zamowienia AND z.status_zamowienia=s.id_statusu_zamowie
 AND s.id_statusu_zamowienia=5;
 ```
 
-#7.
+# 7.
+
 ```sql
 SELECT YEAR(data_zamowienia) AS Rok, ROUND(SUM((p.ilosc*p.cena)-(p.ilosc*t.cena_zakupu)),2) AS Dochod
 FROM zamowienie z, pozycja_zamowienia p, towar t

@@ -25,7 +25,7 @@ GROUP BY rok
 ORDER BY przychod DESC;
 ```
 
-#4.
+# 4.
 ```sql
 SELECT ROUND(SUM(pz.ilosc*pz.cena),2) AS suma_anulowanych_zamowien
 FROM pozycja_zamowienia pz, zamowienie z, status_zamowienia s
@@ -33,7 +33,7 @@ WHERE z.id_zamowienia=pz.zamowienie AND s.id_statusu_zamowienia=z.status_zamowie
 AND s.id_statusu_zamowienia=6;
 ```
 
-#5.
+# 5.
 ```sql
 SELECT a.miejscowosc,COUNT(DISTINCT z.id_zamowienia) AS ilosc_zamowien, ROUND(SUM(pz.ilosc*pz.cena)) AS suma_zamowien
 FROM pozycja_zamowienia pz, zamowienie z, klient k, adres_klienta a, typ_adresu t
@@ -42,7 +42,7 @@ AND t.nazwa = 'podstawowy'
 GROUP BY a.miejscowosc;
 ```
 
-6.
+# 6.
 ```sql
 SELECT ROUND(SUM(pz.ilosc*pz.cena),2) AS dotychczasowy_dochod
 FROM pozycja_zamowienia pz, zamowienie z, status_zamowienia s
@@ -58,7 +58,7 @@ WHERE z.id_zamowienia = p.zamowienie
 GROUP BY rok
 ORDER BY rok DESC;
 
-8.
+# 8.
 ```sql
 SELECT k.nazwa_kategori, COUNT(s.ilosc) AS ilosc, ROUND(SUM(s.ilosc*t.cena_zakupu),2) AS wartosc
 FROM kategoria k, stan_magazynowy s, towar t
@@ -66,7 +66,7 @@ WHERE k.id_kategori=t.kategoria AND s.towar=t.id_towaru
 GROUP BY k.nazwa_kategori;
 ```
 
-#9. 
+# 9. 
 ```sql
 SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 

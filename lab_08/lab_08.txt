@@ -9,11 +9,27 @@ CREATE TRIGGER kreatura_before_insert
 BEFORE INSERT ON kreatura
 FOR EACH ROW
 BEGIN
-IF NEW.waga <= 0
+IF NEW.waga < 0
 THEN
 SET NEW.waga = 0;
 END IF;
 END
 $$
 DELIMITER ;
+
+2.
+
+DELIMITER //
+CREATE TRIGGER wyprawa_after_delete
+AFTER DELETE ON wyprawa
+FOR EACH ROW
+BEGIN
+DECLARE kierownik_nazwa VARCHAR(100);
+SET kierownik_nazwa = (SELECT kreatura.nazwa FROM kreatura WHERE idKreatury = OLD.kierownik);
+INSERT INTO archiwum_wypraw VALUES (OLD.id_wyprawy, OLD.nazwa, OLD.data_rozpoczecia, OLD.data_zakonczenia, kierownik_nazwa);
+END
+//
+DELIMITER ;
+
+3.
 
